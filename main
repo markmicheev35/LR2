@@ -3,10 +3,12 @@
 #include <cstdlib>
 #include <ctime>
 using namespace std;
+
 bool useLower   = true;
 bool useUpper   = true;
 bool useDigits  = true;
 bool useSymbols = false;
+int length, count;
 string buildAlphabet() {
     string alphabet = "";
     if (useLower)   alphabet = alphabet + "abcdefghijklmnopqrstuvwxyz";
@@ -28,11 +30,11 @@ string generatePassword(int length) {
     return password;
 }
 int main() {
-    srand(time(0));
-    cout << "Длина пароля: ";
-    int length;
-    cin >> length;
-    string pwd = generatePassword(length);
-    cout << "Пароль: " << pwd << "\n";
-    return 0;
+cout << "Длина пароля: ";
+cin >> length;
+cout << "Количество паролей: ";
+cin >> count;
+for (int i = 0; i < count; i++) {
+    cout << i + 1 << ". " << generatePassword(length) << "\n";
+    }
 }
